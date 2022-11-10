@@ -125,7 +125,7 @@ namespace creating_a_train_route2
         {
             foreach(var line in _lines)
             {
-                if (line.CheckTrain())
+                if (line.CheckTrainAvailability())
                     line.ShowInfo();
             }
         }
@@ -152,7 +152,7 @@ namespace creating_a_train_route2
 
         private void SkipHour()
         {
-            for(int i = 0; i < _lines.Count - 1; i++)
+            for(int i = 0; i < _lines.Count; i++)
             {
                 _lines[i].SkipHour();
             }
@@ -193,7 +193,7 @@ namespace creating_a_train_route2
                 _train.Move();
         }
 
-        public bool CheckTrain()
+        public bool CheckTrainAvailability()
         {
             return _train != null;
         }
@@ -202,19 +202,20 @@ namespace creating_a_train_route2
     class Train
     {
         private List<Wagon> _wagons;
+        private int _speed;
 
         public int Speed
         {
             get
             {
-                return Speed;
+                return _speed;
             }
             private set
             {
                 Random random = new Random();
                 int minSpeed = 100;
                 int maxSpeed = 200;
-                Speed = random.Next(minSpeed, maxSpeed + 1);
+                _speed = random.Next(minSpeed, maxSpeed + 1);
             }
         }
         public int PassedDistance { get; private set; }
@@ -225,6 +226,7 @@ namespace creating_a_train_route2
             TicketsCount = ticketsCount;
             PassedDistance = 0;
             _wagons = new List<Wagon>();
+            Speed = _speed;
         }
 
         public void AddWagon(int capacity, int passengersCount)
@@ -244,7 +246,7 @@ namespace creating_a_train_route2
 
         public int ShowWagonsCapacity()
         {
-            return _wagons.Capacity;
+            return _wagons[0].Сapacity;
         }
     }
 
