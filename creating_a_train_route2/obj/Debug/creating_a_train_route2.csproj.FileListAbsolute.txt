@@ -6,3 +6,11 @@ C:\Users\Danii\source\repos\creating_a_train_route2\creating_a_train_route2\obj\
 C:\Users\Danii\source\repos\creating_a_train_route2\creating_a_train_route2\obj\Debug\creating_a_train_route2.csproj.CoreCompileInputs.cache
 C:\Users\Danii\source\repos\creating_a_train_route2\creating_a_train_route2\obj\Debug\creating_a_train_route2.exe
 C:\Users\Danii\source\repos\creating_a_train_route2\creating_a_train_route2\obj\Debug\creating_a_train_route2.pdb
+C:\Users\Danii\Documents\GitHub\creating_a_train_route\creating_a_train_route2\bin\Debug\creating_a_train_route2.exe.config
+C:\Users\Danii\Documents\GitHub\creating_a_train_route\creating_a_train_route2\bin\Debug\creating_a_train_route2.exe
+C:\Users\Danii\Documents\GitHub\creating_a_train_route\creating_a_train_route2\bin\Debug\creating_a_train_route2.pdb
+C:\Users\Danii\Documents\GitHub\creating_a_train_route\creating_a_train_route2\obj\Debug\creating_a_train_route2.csproj.AssemblyReference.cache
+C:\Users\Danii\Documents\GitHub\creating_a_train_route\creating_a_train_route2\obj\Debug\creating_a_train_route2.csproj.SuggestedBindingRedirects.cache
+C:\Users\Danii\Documents\GitHub\creating_a_train_route\creating_a_train_route2\obj\Debug\creating_a_train_route2.csproj.CoreCompileInputs.cache
+C:\Users\Danii\Documents\GitHub\creating_a_train_route\creating_a_train_route2\obj\Debug\creating_a_train_route2.exe
+C:\Users\Danii\Documents\GitHub\creating_a_train_route\creating_a_train_route2\obj\Debug\creating_a_train_route2.pdb
