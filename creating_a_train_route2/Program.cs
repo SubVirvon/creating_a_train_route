@@ -76,7 +76,7 @@ namespace creating_a_train_route2
         {
             Random random = new Random();
             int[] capacityVariants = new int[] { 30, 40, 50, 60 };
-            int capacity = capacityVariants[random.Next(0, capacityVariants.Length - 1)];
+            int capacity = capacityVariants[random.Next(0, capacityVariants.Length)];
             Train train = new Train(ticketsCount);
 
             while(ticketsCount > 0)
@@ -125,8 +125,7 @@ namespace creating_a_train_route2
         {
             foreach(var line in _lines)
             {
-                if (line.CheckTrainAvailability())
-                    line.ShowInfo();
+                line.ShowInfo();
             }
         }
 
@@ -181,21 +180,23 @@ namespace creating_a_train_route2
 
         public void ShowInfo()
         {
-            if(_train.PassedDistance < _length)
-                Console.WriteLine($"{_startingPoint} - {_endingPoint} ({_length}км):\nКоличесво вагонов: {_train.ShowWagonsCount()} (вместимость: {_train.ShowWagonsCapacity()}), количество пассажиров: {_train.TicketsCount}\nВ пути: поезд имеет скорость: {_train.Speed}км/ч, пройденное расстояние: {_train.PassedDistance}");
+            if( _train != null)
+            {
+                if (_train.PassedDistance < _length)
+                    Console.WriteLine($"{_startingPoint} - {_endingPoint} ({_length}км):\nКоличесво вагонов: {_train.ShowWagonsCount()} (вместимость: {_train.ShowWagonsCapacity()}), количество пассажиров: {_train.TicketsCount}\nВ пути: поезд имеет скорость: {_train.Speed}км/ч, пройденное расстояние: {_train.PassedDistance}");
+                else
+                    Console.WriteLine($"{_startingPoint} - {_endingPoint} ({_length}км): прибыл");
+            }
             else
-                Console.WriteLine($"{_startingPoint} - {_endingPoint} ({_length}км): прибыл");
+            {
+                Console.WriteLine($"Линия ({_startingPoint} - {_endingPoint}) в процессе создания");
+            }
         }
 
         public void SkipHour()
         {
             if(_train.PassedDistance < _length)
                 _train.Move();
-        }
-
-        public bool CheckTrainAvailability()
-        {
-            return _train != null;
         }
     }
 
@@ -212,10 +213,7 @@ namespace creating_a_train_route2
             }
             private set
             {
-                Random random = new Random();
-                int minSpeed = 100;
-                int maxSpeed = 200;
-                _speed = random.Next(minSpeed, maxSpeed + 1);
+                _speed = value;
             }
         }
         public int PassedDistance { get; private set; }
@@ -223,6 +221,10 @@ namespace creating_a_train_route2
 
         public Train(int ticketsCount)
         {
+            Random random = new Random();
+            int minSpeed = 100;
+            int maxSpeed = 200;
+            Speed = random.Next(minSpeed, maxSpeed + 1);
             TicketsCount = ticketsCount;
             PassedDistance = 0;
             _wagons = new List<Wagon>();
