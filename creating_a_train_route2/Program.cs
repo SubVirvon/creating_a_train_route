@@ -203,19 +203,7 @@ namespace creating_a_train_route2
     class Train
     {
         private List<Wagon> _wagons;
-        private int _speed;
-
-        public int Speed
-        {
-            get
-            {
-                return _speed;
-            }
-            private set
-            {
-                _speed = value;
-            }
-        }
+        public int Speed { get; private set; }  
         public int PassedDistance { get; private set; }
         public int TicketsCount { get; private set; }        
 
@@ -228,7 +216,6 @@ namespace creating_a_train_route2
             TicketsCount = ticketsCount;
             PassedDistance = 0;
             _wagons = new List<Wagon>();
-            Speed = _speed;
         }
 
         public void AddWagon(int capacity, int passengersCount)
